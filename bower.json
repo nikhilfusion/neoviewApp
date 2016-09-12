@@ -1,0 +1,16 @@
+{
+  "name": "nikhil",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Nikhil T Nair <nikhil.nair@plancess.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.8",
+    "jquery": "^3.1.0",
+    "socket.io-client": "^1.4.8"
+  }
+}
