@@ -8,8 +8,10 @@
 
 4. npm install && bower install
 
-5. add videos to videos folder
+5. add cam1, cam2, cam3 subfolders inside videos folder
 
-6. run the app by 'node server.js'
+6. create a default video file inside videos folder
+
+7. run the app by 'node server.js'
 
 *******************************************

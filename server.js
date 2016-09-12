@@ -7,10 +7,10 @@ var express = require('express'),
     watcher = chokidar.watch('videos', {ignored: /^\./, persistent: true});
 app.use('/', express.static(__dirname));
 io.sockets.on('connection', function(socket){
+    io.sockets.emit('cameraConnect', 'cam1');
 });
 watcher.on('ready', function() { 
     watcher.on('add', function(path) {
-        console.log("added a new file", path);
-        io.sockets.emit("newFile", {'data' : path});
-    })
+        io.sockets.emit("newFile", path);
+    });
 });

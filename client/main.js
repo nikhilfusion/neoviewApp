@@ -1,8 +1,11 @@
 angular.module('nikApp')
 .controller('mainCtrl', ['$scope', function ($scope) {
   var length=2,pushIndex=0, playIndex=0;
-  var videoQueue = [];
-  //console.log("location.hostname", location);
+  var videoQueue = [],camera;
+  var socket = io();
+  socket.on('cameraConnect', function(cam) {
+    camera = cam;
+  });
   angular.element(document).ready(function ()  {
     $('#myVideo').bind('contextmenu',function() { 
       return false; 
@@ -38,13 +41,13 @@ angular.module('nikApp')
     videoPlayer.play();
   };
 
-  var socket = io();
   socket.on('newFile', function(newPath) {
+    //console.log("newpath", newPath);
     videoPlayer = document.getElementById("myVideo");
     var playing = videoPlayer.currentSrc;
     if(playing == (location.href + 'videos/default.mp4')) {
       videoPlayer.removeAttribute("controls");
-      videoPlayer.src = newPath.data;
+      videoPlayer.src = newPath;
       videoPlayer.play();
     } else {
       if(pushIndex >= length-1) {
@@ -54,7 +57,7 @@ angular.module('nikApp')
       }
       videoQueue[pushIndex] =  {
         status : "To be played",
-        path : newPath.data
+        path : newPath
       };  
     }
     //console.log("videoQueue", videoQueue);
