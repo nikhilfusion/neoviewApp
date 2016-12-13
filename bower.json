@@ -11,6 +11,13 @@
   "dependencies": {
     "angular": "^1.5.8",
     "jquery": "^3.1.0",
-    "socket.io-client": "^1.4.8"
+    "socket.io-client": "^1.4.8",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.7",
+    "ui-bootstrap": "^2.2.0",
+    "angular-bootstrap": "^2.3.0",
+    "angular-animate": "^1.5.9",
+    "components-font-awesome": "^4.7.0",
+    "angular-local-storage": "^0.5.2"
   }
 }
